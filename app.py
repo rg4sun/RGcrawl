@@ -21,9 +21,10 @@ import re
 # myKey 是 高德地图的 接口key，也是免费申请的，请自己申请
 # 为了防止我申请的账户被超额使用，这里我进行了简单的加密（真的很垃圾的加密哈哈哈，我专业是学密码）
 import  base64
-mykey_bs64 = 'cHJlc2VudCBieSBSLkcuNTk5ODQ4Y2Y0NmUxYmMwMjA5NjVlOTMzNGMxMDMzNDc='
-ak_bs64 = 'cHJlc2VudCBieSBSLkcubURhS3oxNHY1TnBzb2V1ZXh5WDVEQTJ0'
-sk_bs64 = 'cHJlc2VudCBieSBSLkcuZm5Gdlc5ejk0Mnc1VXRoZVo0ZnhuZ2lzMmZ5WEtwamM='
+mykey_bs64 = 'OWE3cXU9cHJlc2VudCBieSBSLkcuNTk5ODQ4Y2Y0NmUxYmMwMjA5NjVlOTMzNGMxMDMzNDc='
+ak_bs64 = 'OWE3cXU9cHJlc2VudCBieSBSLkcubURhS3oxNHY1TnBzb2V1ZXh5WDVEQTJ0'
+sk_bs64 = 'OWE3cXU9cHJlc2VudCBieSBSLkcuZm5Gdlc5ejk0Mnc1VXRoZVo0ZnhuZ2lzMmZ5WEtwamM='
+
 keyStart = int(input('key start postion='))
 ak = base64.b64decode(ak_bs64.encode()).decode()[keyStart:]
 sk = base64.b64decode(sk_bs64.encode()).decode()[keyStart:]
