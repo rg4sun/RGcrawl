@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>R.G.Traffic</title>
+    {{ bootstrap.load_css() }}
+     {{ bootstrap.load_js() }}
+        <script type="text/javascript">
+        function refreshURL() { // 这个函数用于重新修改路由，使得查询结果可以在当前界面显示
+            var addr = document.getElementById("address")
+            window.location.href = '/traffic/' +  addr.value
+        }
+        </script>
+</head>
+
+
+<body background="../static/img/ocean.jpg">
+    <form class="form-inline" >
+        <h2><span class="badge badge-dark" >地址</span></h2>
+        <div class="form-group mx-sm-3 mb-2">
+                <label for="address" class="sr-only">address</label>
+                <input type="text" name="address" autocomplete="off" class="form-control" id="address" placeholder="如：浙江大学">
+                <!-- 之前少打了name属性，这样在后端代码 request.form 没办法获取到这个表单（获取了一个空字典），估计是因为没有name属性字典就没有key值-->
+        </div>
+        <button type="button" class="btn btn-primary mb-2" onclick="refreshURL()">查看该地点1km半径内的交通态势</button>
+    </form>
+    {% if address != None %}
+        <h1>「{{ address }}」附近半径1km内的交通态势
+        <a class="btn btn-primary" href="{{ url_for('home_page') }}" role="button">返回主界面</a><br/>
+        </h1>
+        <div class="table-responsive-sm">
+            <table class="table table-hover ">
+              <caption></caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" width="750px">区域整体路况描述</th>
+                  <th scope="col">畅通所占百分比</th>
+                  <th scope="col">缓行所占百分比</th>
+                  <th scope="col">拥堵所占百分比</th>
+                  <th scope="col">未知路段所占百分比</th>
+                  <th scope="col">整体路况</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-secondary">
+                  <td>{{ jsonData['trafficinfo']['description'] }}</td>
+                  <td>{{ jsonData['trafficinfo']['evaluation']['expedite'] }}</td>
+                  <td>{{ jsonData['trafficinfo']['evaluation']['congested'] }}</td>
+                  <td>{{ jsonData['trafficinfo']['evaluation']['blocked'] }}</td>
+                  <td>{{ jsonData['trafficinfo']['evaluation']['unknown'] }}</td>
+                  <td>{{ jsonData['trafficinfo']['evaluation']['status'] }}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <h6>注：路况评级解释，0：未知 1：畅通 2：缓行 3：拥堵 4：严重拥堵</h6>
+        <div class="table-responsive-sm">
+            <table class="table table-hover ">
+              <caption></caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">路段名</th>
+                  <th scope="col">路段范围</th>
+                  <th scope="col">当前车辆通行速度</th>
+                  <th scope="col">路况</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for road in jsonData['trafficinfo']['roads'] %}
+                <tr class="table-secondary">
+                  <td>{{ road['name'] }}</td>
+                  <td>{{ road['direction'] }}</td>
+                  <td>{{ road['speed'] }}km/h</td>
+                  <td>{{ road['status'] }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>

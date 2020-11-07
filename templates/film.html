@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>R.G.film</title>
+     {{ bootstrap.load_css() }}
+     {{ bootstrap.load_js() }}
+        <script type="text/javascript">
+        function refreshURL() { // 这个函数用于重新修改路由，使得查询结果可以在当前界面显示
+            var filmAmount = document.getElementById("filmAmount")
+            var sort = document.getElementById('sort')
+            var tag = document.getElementById('tag')
+            window.location.href = '/film/' + tag.value + '/' + sort.value + '/' + filmAmount.value
+        }
+        </script>
+</head>
+<body background="../static/img/marvel.gif">
+    <form class="form-inline" >
+        <div class="page-header" style="padding: 0px;border: 0px;">
+            <div class="form-horizontal">
+                <div class="col-lg-2">
+                    <select class="form-control" οnchange="selectOnchang(this)" id="tag">
+                        <option>热门</option>
+                        <option>最新</option>
+                        <option>经典</option>
+                        <option>可播放</option>
+                        <option>豆瓣高分</option>
+                        <option>冷门佳片</option>
+                        <option>华语</option>
+                        <option>欧美</option>
+                        <option>韩国</option>
+                        <option>日本</option>
+                        <option>动作</option>
+                        <option>喜剧</option>
+                        <option>爱情</option>
+                        <option>科幻</option>
+                        <option>悬疑</option>
+                        <option>恐怖</option>
+                        <option>治愈</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-header" style="padding: 0px;border: 0px;">
+            <div class="form-horizontal">
+                <div class="col-lg-2">
+                    <select class="form-control" οnchange="selectOnchang(this)" id="sort">
+                        <option>recommend</option>
+                        <option>time</option>
+                        <option>rank</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <h2><span class="badge badge-dark" >电影数目top n</span></h2>
+        <div class="form-group mx-sm-3 mb-2">
+                <label for="filmAmount" class="sr-only">filmAmount</label>
+                <input type="text" name="filmAmount" autocomplete="off" class="form-control" id="filmAmount" placeholder="如：10">
+                <!-- 之前少打了name属性，这样在后端代码 request.form 没办法获取到这个表单（获取了一个空字典），估计是因为没有name属性字典就没有key值-->
+        </div>
+        <button type="button" class="btn btn-primary mb-2" onclick="refreshURL()">查询</button>
+    </form>
+    {% if filmAmount != None %}
+        <h1>豆瓣「{{ tag }}」电影按「{{ sort }}」排行榜 Top{{ filmAmount }}:
+        <a class="btn btn-primary" href="{{ url_for('home_page') }}" role="button">返回主界面</a><br/>
+        </h1>
+{#        <div class="table-responsive-sm">#}
+        <div>
+            <table class="table table-hover ">
+              <caption></caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" width="500px">电影名称</th>
+                  <th scope="col" width="500px">豆瓣评分</th>
+                  <th scope="col">豆瓣地址</th>
+                  <th scope="col" width="500px">导演</th>
+                  <th scope="col" width="550px">编剧</th>
+                  <th scope="col" width="2500px">主演(取前15位)</th>
+                  <th scope="col" width="300px">类型</th>
+                  <th scope="col" width="600px">制片国家/地区</th>
+                  <th scope="col" width="200px">语言</th>
+                  <th scope="col" width="350px">上映日期</th>
+                  <th scope="col" width="200px">片长</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for film in jsonData %}
+                <tr class="table-secondary">
+                  <td>{{ film['filmname'] }}</td>
+                  <td>{{ film['rate'] }}</td>
+                  <td>{{ film['url'] }}</td>
+                  <td >{{ film['director'][0] }}</td>
+                  {% for flag in ['editor','cast','type','region','language','date','runtime'] %}
+                        {% set tmp = list2str(film[flag]) %}
+                        <td >{{ tmp }}</td>
+                  {% endfor %}
+{#                  <td>{{ film['editor'] }}</td>#}
+{#                  <td>{{ film['cast'] }}</td>#}
+{#                  <td>{{ film['type'] }}</td>#}
+{#                  <td>{{ film['region'] }}</td>#}
+{#                  <td>{{ film['language'] }}</td>#}
+{#                  <td>{{ film['date'] }}</td>#}
+{#                  <td>{{ film['runtime'] }}</td>#}
+{#                  {% for editor in film['editor'] %}#}
+{#                  {% set editor = '' %}    #}
+{#                  <td>{{ editor }}</td>#}
+{#                  {% endfor %}#}
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>

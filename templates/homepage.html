@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+     {{ bootstrap.load_css() }}
+     {{ bootstrap.load_js() }}
+</head>
+<body background="../static/img/wbkg.jpeg">
+
+<div class="card-deck">
+  <div class="card">
+    <img src="../static/img/amap.png" class="card-img-top" alt="xn">
+    <div class="card-body">
+      <h5 class="card-title">交通态势查询</h5>
+      <p class="card-text">根据用户所输入的一个具体地址，以该地址为中心，爬取半径为1km高德地图交通状况。</p>
+    </div>
+      <a href="{{ url_for('traffic_entry') }}" class="btn btn-primary">Go!</a>
+    <div class="card-footer">
+      <small class="text-muted">Presented By R.G.</small>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="../static/img/search.jpeg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">店铺关键词匹配</h5>
+      <p class="card-text">根据用户输入的店铺/地址关键词，查询全国和该关键词相关的店铺/地点数量。</p>
+    </div>
+      <a href="{{ url_for('search_entry') }}" class="btn btn-success">Go!</a>
+    <div class="card-footer">
+      <small class="text-muted">Presented By R.G.</small>
+    </div>
+  </div>
+
+    <div class="card-deck">
+      <div class="card">
+        <img src="../static/img/amap.png" class="card-img-top" alt="xn">
+        <div class="card-body">
+          <h5 class="card-title">b站评论监控</h5>
+          <p class="card-text">根据用户所输入的视频bv号，获取视频信息、热评、评论敏感词监控，以及评论情感倾向分析</p>
+        </div>
+          <a href="{{ url_for('bili_search') }}" class="btn btn-primary">Go!</a>
+        <div class="card-footer">
+          <small class="text-muted">Presented By R.G.</small>
+        </div>
+      </div>
+
+  <div class="card">
+    <img src="../static/img/weather.png" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">天气查询</h5>
+      <p class="card-text">根据用户输入的一个城市名称，程序会自动搜索该城市的citycode，依据该citycode爬取该城市的天气状况，包括实时天气和预报天气。</p>
+    </div>
+      <a href="{{ url_for('weather_entry') }}" class="btn btn-warning ">Go!</a>
+    <div class="card-footer">
+      <small class="text-muted" >Presented By R.G.</small>
+    </div>
+  </div>
+
+    <div class="card">
+    <img src="../static/img/film.gif" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">豆瓣电影排行榜爬取</h5>
+      <p class="card-text">根据用户所设定的规则（筛选条件），爬取豆瓣电影中符合相应条件的电影的信息。</p>
+    </div>
+      <a href="{{ url_for('film_entry') }}" class="btn btn-danger">Go!</a>
+    <div class="card-footer">
+      <small class="text-muted">Presented By R.G.</small>
+    </div>
+    </div>
+
+</div>
+</body>
+</html>

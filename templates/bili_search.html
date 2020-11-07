@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    {#    设置浏览器不缓存#}
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <title>Bilibili-Monitor</title>
+     {{ bootstrap.load_css() }}
+     {{ bootstrap.load_js() }}
+    <script type="text/javascript">
+        function refreshURL() { // 这个函数用于重新修改路由，使得查询结果可以在当前界面显示
+            var bvid = document.getElementById("bvid")
+            window.location.href = '/video_info/' + bvid.value
+        }
+    </script>
+{#    <style>#}
+{#        .login-center {#}
+{##}
+{#            height: 100vh;#}
+{##}
+{#        }#}
+{#    </style>#}
+
+
+</head>
+<body>
+
+{#    <img src="../static/img/bilibili_logo.png">#}
+    <br/><br/><br/><br/><br/>
+    <div class="row align-items-center justify-content-center">
+        <img src="../static/img/bilibili_logo.png" class="img-fluid" alt="Responsive image" width="400" height="300 ">
+    </div>
+
+    <br>
+    <div class="row align-items-center justify-content-center ">
+{#        <img src="../static/img/bilibili_logo.png" class="img-fluid" alt="Responsive image">#}
+{#        <br>#}
+        <div class="w-25 p-3"  > {#  style="background-color: #eee;"#}
+            <div class="input-group mb-3 input-group-lg" >
+              <input type="text" id="bvid" autocomplete="off" class="form-control" placeholder="输入BV号:" >
+              <div class="input-group-append">
+{#                <button class="btn btn-outline-secondary" type="button"  href="{{ url_for('video_info') }}" id="button-addon2">查询</button>#}
+                <button type="button" class="btn btn-primary mb-2" onclick="refreshURL()">查询</button>
+              </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

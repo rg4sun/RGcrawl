@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="52ccf152-cb42-4142-9fdc-4f90c1ba9f58" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Flask Main" />
+        <option value="HTML File" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1UPrRQp0Hbr35b50vk6jORXiqvR" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="restartRequiresConfirmation" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/img" />
+      <recent name="$PROJECT_DIR$/static" />
+      <recent name="$PROJECT_DIR$/templates" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="ex4_demo" type="Python.FlaskServer">
+      <option name="additionalOptions" value="--port=1314" />
+      <module name="ex4_demo" />
+      <option name="target" value="$PROJECT_DIR$/app.py" />
+      <option name="targetType" value="PATH" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="/usr/local/bin/python3.7" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="52ccf152-cb42-4142-9fdc-4f90c1ba9f58" name="Default Changelist" comment="" />
+      <created>1575269062183</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575269062183</updated>
+      <workItem from="1575269063313" duration="2234000" />
+      <workItem from="1575351511260" duration="1514000" />
+      <workItem from="1575353090094" duration="17484000" />
+      <workItem from="1575427679342" duration="2512000" />
+      <workItem from="1575703122083" duration="5651000" />
+      <workItem from="1575724777609" duration="98000" />
+      <workItem from="1575779236269" duration="11268000" />
+      <workItem from="1575870898343" duration="3860000" />
+      <workItem from="1575955195735" duration="382000" />
+      <workItem from="1576050752927" duration="208000" />
+      <workItem from="1576118492687" duration="367000" />
+      <workItem from="1576485999484" duration="110000" />
+      <workItem from="1601105563732" duration="189000" />
+      <workItem from="1602813697119" duration="133000" />
+      <workItem from="1602814192061" duration="1021000" />
+      <workItem from="1602815853676" duration="6801000" />
+      <workItem from="1603072882488" duration="4052000" />
+      <workItem from="1603188557939" duration="245000" />
+      <workItem from="1603191463405" duration="7045000" />
+      <workItem from="1603243123372" duration="166000" />
+      <workItem from="1603276693340" duration="2184000" />
+      <workItem from="1603280040451" duration="660000" />
+      <workItem from="1603360408871" duration="185000" />
+      <workItem from="1603517438180" duration="1450000" />
+      <workItem from="1604750530146" duration="1461000" />
+      <workItem from="1604752078572" duration="146000" />
+      <workItem from="1604752561145" duration="291000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604752671610">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604752671610" />
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1603188588029" />
+    <state width="1398" height="338" key="GridCell.Tab.0.bottom" timestamp="1604752852706">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="338" key="GridCell.Tab.0.bottom/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604752852706" />
+    <state width="1398" height="705" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1603522085144" />
+    <state width="1398" height="338" key="GridCell.Tab.0.center" timestamp="1604752852705">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="338" key="GridCell.Tab.0.center/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604752852705" />
+    <state width="1398" height="705" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1603522085142" />
+    <state width="1398" height="338" key="GridCell.Tab.0.left" timestamp="1604752852704">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="338" key="GridCell.Tab.0.left/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604752852704" />
+    <state width="1398" height="705" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1603522085142" />
+    <state width="1398" height="338" key="GridCell.Tab.0.right" timestamp="1604752852705">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="338" key="GridCell.Tab.0.right/0.0.1440.900/1440.0.1920.1080@0.0.1440.900" timestamp="1604752852705" />
+    <state width="1398" height="705" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1603522085143" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/app.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/ex4_demo$ex4_demo.coverage" NAME="ex4_demo Coverage Results" MODIFIED="1575804395126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/RGcrawl$ex4_demo.coverage" NAME="ex4_demo Coverage Results" MODIFIED="1604752680195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

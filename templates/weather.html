@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>R.G.Weather</title>
+     {{ bootstrap.load_css() }}
+     {{ bootstrap.load_js() }}
+        <script type="text/javascript">
+        function refreshURL2live() { // 这个函数用于重新修改路由，使得查询结果可以在当前界面显示
+            var cityname = document.getElementById("cityname")
+            window.location.href = '/weather/live/' +  cityname.value
+        }
+        </script>
+        <script type="text/javascript">
+        function refreshURL2forecast() { // 这个函数用于重新修改路由，使得查询结果可以在当前界面显示
+            var cityname = document.getElementById("cityname")
+            window.location.href = '/weather/forecast/' +  cityname.value
+        }
+        </script>
+
+</head>
+
+
+<body background="../static/img/wbkg.jpeg">
+{#<form class="form-inline" action="{{ url_for('getWeatherLive') }}" method="post">#}
+
+<form class="form-inline" >
+    <h2><span class="badge badge-dark" >城市名</span></h2>
+    <div class="form-group mx-sm-3 mb-2">
+            <label for="cityname" class="sr-only">Cityname</label>
+            <input type="text" name="cityname" class="form-control" id="cityname" placeholder="如：杭州市">
+            <!-- 之前少打了name属性，这样在后端代码 reques.form 没办法获取到这个表单（获取了一个空字典），估计是因为没有name属性字典就没有key值-->
+    </div>
+    <button type="button" class="btn btn-primary mb-2" onclick="refreshURL2live()">查询当前天气</button>
+    <button type="button" class="btn btn-primary mb-2" onclick="refreshURL2forecast()">查看天气预报</button>
+{#    <button type="submit"  class="btn btn-primary mb-2">查询</button>#}
+</form>
+    {% if liveData != None %}
+        <br/>
+        <h1>This is weather live for {{ cityname }}
+        <a class="btn btn-primary" href="{{ url_for('home_page') }}" role="button">返回主界面</a><br/>
+        </h1>
+        <div class="table-responsive-sm">
+            <table class="table table-hover ">
+              <caption>数据发布的时间: {{ liveData['lives'][0]['reporttime'] }}</caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">天气状况</th>
+                  <th scope="col">温度/摄氏度</th>
+                  <th scope="col">风向</th>
+                  <th scope="col">风力/级</th>
+                  <th scope="col">湿度</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-secondary">
+                  <td>{{ liveData['lives'][0]['weather'] }}</td>
+                  <td>{{ liveData['lives'][0]['temperature'] }}</td>
+                  <td>{{ liveData['lives'][0]['winddirection'] }}</td>
+                  <td>{{ liveData['lives'][0]['windpower'] }}</td>
+                  <td>{{ liveData['lives'][0]['humidity'] }}</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    {% if forecastData != None %}
+        <br/>
+        <h1>This is weather forecast for {{ cityname }}
+        <a class="btn btn-primary" href="{{ url_for('home_page') }}" role="button">返回主界面</a><br/>
+        </h1>
+        <div class="table-responsive-sm">
+            <table class="table table-hover ">
+              <caption>数据发布的时间: {{ forecastData['forecasts'][0]['reporttime'] }}</caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">日期</th>
+                  <th scope="col">星期几</th>
+                  <th scope="col">白天天气</th>
+                  <th scope="col">白天温度</th>
+                  <th scope="col">白天风向</th>
+                  <th scope="col">白天风力</th>
+                  <th scope="col">晚上天气</th>
+                  <th scope="col">晚上温度</th>
+                  <th scope="col">晚上风向</th>
+                  <th scope="col">晚上风力</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for cast in forecastData['forecasts'][0]['casts'] %}
+                <tr class="table-secondary">
+                    <td>{{ cast['date'] }}</td>
+                    <td>{{ cast['week'] }}</td>
+                    <td>{{ cast['dayweather'] }}</td>
+                    <td>{{ cast['daytemp'] }}</td>
+                    <td>{{ cast['daywind'] }}</td>
+                    <td>{{ cast['daypower'] }}</td>
+                    <td>{{ cast['nightweather'] }}</td>
+                    <td>{{ cast['nighttemp'] }}</td>
+                    <td>{{ cast['nightwind'] }}</td>
+                    <td>{{ cast['nightpower'] }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="no-referrer" />
+    {#    设置浏览器不缓存#}
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <title>Video Info</title>
+     {{ bootstrap.load_css() }}
+     {{ bootstrap.load_js() }}
+    <style>
+
+    </style>
+    <script type="text/javascript">
+        function refreshURL() { // 这个函数用于重新修改路由，使得查询结果可以在当前界面显示
+            {#var bvid = document.getElementById("bvid")#}
+            window.location.href = '/video_comments/' + "{{ bvid }}"
+        }
+        console.log({{ bvid }})
+    </script>
+</head>
+
+<body>
+    <br/>
+    {% if bvid != None %}
+        <form>
+
+{#            <div class="row align-items-center justify-content-center ">#}
+{#                <h1>#}
+{#                The information of BV: {{ bvid }}#}
+{#                    <button type="button" class="btn btn-primary">查看本视频评论监控信息</button>#}
+{#                </h1>#}
+{#            </div>#}
+
+            <div class="row align-items-center justify-content-center ">
+                <img src="{{ video_data['pic'] }}" class="img-fluid" width="800" height="600">
+            </div>
+
+            <br/>
+            <div class="row align-items-center justify-content-center ">
+                <h1>
+                The information of BV: {{ bvid }}
+                    <button type="button" class="btn btn-primary" onclick="refreshURL()">查看本视频评论监控信息</button>
+                </h1>
+            </div>
+
+            <br/>
+
+            <div class="row align-items-center justify-content-center ">
+
+            <div class="table-responsive-sm" style="width: 850px;">
+                    <table class="table table-hover ">
+        {#              <caption>数据发布的时间: {{ liveData['lives'][0]['reporttime'] }}</caption>#}
+    {#                  <thead class="thead-dark">#}
+    {#                    <tr>#}
+    {#                      <th scope="col">BV号</th>#}
+    {#                      <th scope="col">对应AV号</th>#}
+    {#                      <th scope="col">视频分区</th>#}
+    {#                      <th scope="col">视频标题</th>#}
+    {#                      <th scope="col">发布时间</th>#}
+    {#                      <th scope="col">审核时间</th>#}
+    {#                      <th scope="col">视频简介</th>#}
+    {#                    </tr>#}
+    {#                  </thead>#}
+                      <tbody>
+                        <tr>
+                            <th scope="row" width="150px">BV号</th>
+                            <td>{{ video_data['bvid'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">对应AV号</th>
+                            <td>{{ video_data['aid'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">视频分区</th>
+                            <td>{{ video_data['tname'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">视频标题</th>
+                            <td>{{ video_data['title'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">视频简介</th>
+                            <td>{{ video_data['desc'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">发布时间</th>
+                            <td>{{ video_data['pubdate'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">审核时间</th>
+                            <td>{{ video_data['ctime'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">视频时长</th>
+                            <td>{{ video_data['duration'] }} 秒</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">up主ID</th>
+                            <td>{{ video_data['mid'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">up主昵称</th>
+                            <td>{{ video_data['name'] }}</td>
+                        </tr>
+                         <tr>
+                            <th scope="row">当前播放量</th>
+                            <td>{{ video_data['view'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">当前弹幕数量</th>
+                            <td>{{ video_data['danmaku'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">当前点赞量</th>
+                            <td>{{ video_data['like'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">当前评论数量</th>
+                            <td>{{ video_data['reply'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">当前收藏量</th>
+                            <td>{{ video_data['favorite'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">当前投币量</th>
+                            <td>{{ video_data['coin'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">当前转发量</th>
+                            <td>{{ video_data['share'] }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">历史最高排行</th>
+                            <td>{{ video_data['his_rank'] }}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+            </div>
+
+            </div>
+        </form>
+    {% elif bvid == None %}
+        <div class="alert alert-danger" role="alert">
+          请输入视频BV号 ！！！
+        </div>
+        <script language='javascript'> window.location.href = "{{ url_for('home_page') }}"</script>
+    {% endif %}
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>R.G.Search</title>
+     {{ bootstrap.load_css() }}
+     {{ bootstrap.load_js() }}
+        <script type="text/javascript">
+        function refreshURL() { // 这个函数用于重新修改路由，使得查询结果可以在当前界面显示
+            var keywords = document.getElementById("keywords")
+            window.location.href = '/search/' +  keywords.value
+        }
+        </script>
+</head>
+<body background="../static/img/ocean.jpg">
+    <form class="form-inline" >
+        <h2><span class="badge badge-dark" >关键词</span></h2>
+        <div class="form-group mx-sm-3 mb-2">
+                <label for="keywords" class="sr-only">Keywords</label>
+                <input type="text" name="keywords" autocomplete="off" class="form-control" id="keywords" placeholder="如：新华书店">
+                <!-- 之前少打了name属性，这样在后端代码 request.form 没办法获取到这个表单（获取了一个空字典），估计是因为没有name属性字典就没有key值-->
+        </div>
+        <button type="button" class="btn btn-primary mb-2" onclick="refreshURL()">查询</button>
+    </form>
+    {% if keywords != None %}
+        <h1>全国含关键词「{{ keywords }}」的店铺/地点总数量：{{ total }}
+        <a class="btn btn-primary" href="{{ url_for('home_page') }}" role="button">返回主界面</a><br/>
+        </h1>
+        <div class="table-responsive-sm">
+            <table class="table table-hover ">
+              <caption></caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col" width="500px">城市名</th>
+                  <th scope="col" width="500px">含关键词的店铺/地点数</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for data in jsonData['suggestion']['cities'] %}
+                <tr class="table-secondary">
+                  <td>{{ data['name'] }}</td>
+                  <td>{{ data['num'] }}</td>
+                </tr>
+              {% endfor %}
+              </tbody>
+            </table>
+        </div>
+    {% endif %}
+</body>
+</html>
