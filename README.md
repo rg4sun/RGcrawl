@@ -14,7 +14,7 @@ RGcrawl contains 5 modules:
 + Weather report (天气查询): Obtain the real-time weather conditions of the input location and the weather forecast
 + Douban movie ranking list (豆瓣电影排行榜爬取): Get top rank movies' information of Douban movie ranking list
 
-![image-20211026170433553](README.assets/image-20211026170433553.png)
+![image-20211026170433553](./README.assets/image-20211026170433553.png)
 
 ## Note
 
